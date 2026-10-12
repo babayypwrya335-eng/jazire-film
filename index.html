@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جزیره فیلم</title>
+<style>
+body{margin:0;background:#071426;color:#fff;font-family:tahoma,Arial,sans-serif}
+header{text-align:center;padding:30px 10px;background:#102b46}
+h1{color:#5eead4}
+main{max-width:600px;margin:20px auto;padding:12px}
+.pack{background:#132b43;border:1px solid #284765;border-radius:14px;padding:18px;margin:14px 0}
+.number{font-size:20px;font-weight:bold}
+.info{color:#cbd5e1;margin-top:12px}
+</style>
+</head>
+<body>
+<header>
+<h1>🏝️ جزیره فیلم</h1>
+<p>فهرست پک‌ها</p>
+</header>
+<main>
+<div id="packs"></div>
+</main>
+<script>
+const packs = document.getElementById("packs");
+for(let i=1;i<=18;i++){
+  packs.innerHTML += `
+    <div class="pack">
+      <div class="number">🎬 پک شماره ${i}</div>
+      <div class="info">💰 قیمت: بعداً اعلام می‌شود</div>
+    </div>`;
+}
+</script>
+</body>
+</html>
