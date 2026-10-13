@@ -3,34 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>جزیره فیلم</title>
+<meta name="theme-color" content="#080611">
+<title>جزیره فیلم | فروشگاه سینمایی</title>
+
 <style>
-body{margin:0;background:#071426;color:#fff;font-family:tahoma,Arial,sans-serif}
-header{text-align:center;padding:30px 10px;background:#102b46}
-h1{color:#5eead4}
-main{max-width:600px;margin:20px auto;padding:12px}
-.pack{background:#132b43;border:1px solid #284765;border-radius:14px;padding:18px;margin:14px 0}
-.number{font-size:20px;font-weight:bold}
-.info{color:#cbd5e1;margin-top:12px}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at top, #291044 0%, #0b0815 45%, #050409 100%);
+  color: #fff;
+  font-family: Tahoma, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 42px 15px 35px;
+  background: linear-gradient(135deg, #190c2c, #35105a, #10091d);
+  border-bottom: 1px solid #a855f7;
+  box-shadow: 0 5px 35px #8b5cf633;
+}
+
+.logo {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #e9c5ff;
+  text-shadow: 0 0 18px #b44aff;
+}
+
+header p {
+  color: #d8b4fe;
+  line-height: 2;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #a855f7;
+  border-radius: 30px;
+  color: #e9c5ff;
+  font-size: 12px;
+  background: #a855f71a;
+}
+
+main {
+  max-width: 680px;
+  margin: 25px auto;
+  padding: 15px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.intro h2 {
+  color: #d8b4fe;
+  font-size: 22px;
+}
+
+.intro p {
+  color: #aaa2bd;
+  line-height: 2;
+  font-size: 13px;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.price-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 19px 8px;
+  border: 1px solid #39264f;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #1a1325, #100c18);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.price-card:active {
+  transform: scale(0.97);
+}
+
+.price-card.selected {
+  border: 2px solid #c084fc;
+  background: linear-gradient(145deg, #381453, #1b1028);
+  box-shadow: 0 0 20px #a855f744;
+}
+
+.price-card .icon {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 19px;
+  font-weight: bold;
+  color: #e9c5ff;
+}
+
+.currency {
+  font-size: 12px;
+  color: #c4b5d7;
+  margin-top: 7px;
+}
+
+.select-label {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #a78bfa;
+}
+
+.price-card.selected .select-label {
+  color: #fff;
+}
+
+.checkout {
+  margin-top: 22px;
+  padding: 22px 17px;
+  background: #140e20;
+  border: 1px solid #59327b;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.checkout h3 {
+  color: #e9c5ff;
+  margin-top: 0;
+}
+
+.selected-price {
+  font-size: 25px;
+  font-weight: bold;
+  color: #d8b4fe;
+  margin: 15px 0;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pay-button {
+  color: white;
+  background: linear-gradient(90deg, #9333ea, #c026d3);
+  box-shadow: 0 0 20px #a855f744;
+}
+
+.pay-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.notice {
+  display: none;
+  margin-top: 15px;
+  padding: 13px;
+  border: 1px solid #76509b;
+  border-radius: 10px;
+  color: #e9d5ff;
+  font-size: 13px;
+  line-height: 2;
+  background: #251433;
+}
+
+footer {
+  padding: 25px 15px;
+  text-align: center;
+  color: #81768f;
+  font-size: 12px;
+  line-height: 2;
+}
+
+@media (min-width: 520px) {
+  .price-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>🏝️ جزیره فیلم</h1>
-<p>فهرست پک‌ها</p>
+  <div class="logo">🏝️</div>
+  <h1>جزیره فیلم</h1>
+  <p>دنیای فیلم‌ها، یک انتخاب تا تماشا</p>
+  <span class="badge">🎬 فروشگاه سینمایی</span>
 </header>
+
 <main>
-<div id="packs"></div>
+  <section class="intro">
+    <h2>💜 انتخاب مبلغ خرید</h2>
+    <p>
+      مبلغ موردنظرت رو انتخاب کن و در مرحله بعد ادامه بده.
+      قیمت‌ها به تومان نمایش داده می‌شن.
+    </p>
+  </section>
+
+  <section class="price-grid" id="prices"></section>
+
+  <section class="checkout">
+    <h3>🛒 سفارش شما</h3>
+    <div id="selectedPrice" class="selected-price">
+      مبلغی انتخاب نشده
+    </div>
+
+    <button id="payButton" class="pay-button" disabled>
+      ادامه خرید
+    </button>
+
+    <div id="notice" class="notice" role="status"></div>
+  </section>
 </main>
+
+<footer>
+  🏝️ جزیره فیلم<br>
+  لطفاً قبل از پرداخت، مبلغ سفارش خود را بررسی کنید.
+</footer>
+
 <script>
-const packs = document.getElementById("packs");
-for(let i=1;i<=18;i++){
-  packs.innerHTML += `
-    <div class="pack">
-      <div class="number">🎬 پک شماره ${i}</div>
-      <div class="info">💰 قیمت: بعداً اعلام می‌شود</div>
-    </div>`;
+const prices = [
+  35000, 45000, 55000, 75000, 95000,
+  115000, 135000, 155000, 175000, 195000,
+  215000, 235000, 255000,
+  300000, 400000, 500000, 600000, 700000,
+  800000, 900000, 1000000, 1100000, 1200000
+];
+
+const priceGrid = document.getElementById("prices");
+const selectedPrice = document.getElementById("selectedPrice");
+const payButton = document.getElementById("payButton");
+const notice = document.getElementById("notice");
+
+let selectedAmount = null;
+
+function formatPrice(amount) {
+  return new Intl.NumberFormat("fa-IR").format(amount);
 }
+
+prices.forEach((amount) => {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "price-card";
+  card.setAttribute("aria-pressed", "false");
+
+  card.innerHTML = `
+    <div class="icon">🎬</div>
+    <div class="price">${formatPrice(amount)}</div>
+    <div class="currency">تومان</div>
+    <span class="select-label">انتخاب مبلغ</span>
+  `;
+
+  card.addEventListener("click", () => {
+    selectedAmount = amount;
+
+    document.querySelectorAll(".price-card").forEach((item) => {
+      item.classList.remove("selected");
+      item.setAttribute("aria-pressed", "false");
+      item.querySelector(".select-label").textContent = "انتخاب مبلغ";
+    });
+
+    card.classList.add("selected");
+    card.setAttribute("aria-pressed", "true");
+    card.querySelector(".select-label").textContent = "✓ انتخاب شد";
+
+    selectedPrice.textContent =
+      formatPrice(amount) + " تومان";
+
+    payButton.disabled = false;
+
+    notice.style.display = "none";
+  });
+
+  priceGrid.appendChild(card);
+});
+
+payButton.addEventListener("click", () => {
+  if (selectedAmount === null) {
+    return;
+  }
+
+  notice.textContent =
+    "مبلغ انتخابی شما " +
+    formatPrice(selectedAmount) +
+    " تومان است. پرداخت آنلاین هنوز راه‌اندازی نشده است؛ " +
+    "برای جلوگیری از پرداخت ناموفق، فعلاً هیچ مبلغی دریافت نمی‌شود.";
+
+  notice.style.display = "block";
+});
 </script>
+
 </body>
 </html>
